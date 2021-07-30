@@ -101,7 +101,8 @@ def main(_argv):
             print('Video has ended or failed, try a different video format!')
             break
         frame_num +=1
-        print('Frame #: ', frame_num)
+        if frame_num%50 == 0 :
+            print('Frame #: ', frame_num)
         frame_size = frame.shape[:2]
         image_data = cv2.resize(frame, (input_size, input_size))
         image_data = image_data / 255.
@@ -220,7 +221,7 @@ def main(_argv):
 
         # calculate frames per second of running detections
         fps = 1.0 / (time.time() - start_time)
-        print("FPS: %.2f" % fps)
+        #print("FPS: %.2f" % fps)
         result = np.asarray(frame)
         result = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
         
